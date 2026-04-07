@@ -1,6 +1,7 @@
 package project4;
 
 import java.util.ArrayList;
+import java.util.Arrays;
 
 /**
  * Concrete class for BuildYourOwn Pizza, includes prices and topping array
@@ -14,7 +15,7 @@ public class BuildYourOwn extends Pizza{
     private Size size;
     private Crust crust;
     private int numToppings;
-    private double toppingPrice = 1.69;
+    private final double toppingPrice = 1.69;
 
     /**
      * Constructor Method
@@ -68,6 +69,19 @@ public class BuildYourOwn extends Pizza{
         }
         toppings.add(topping);
         numToppings++;
+        return true;
+    }
+
+    /**
+     * Adds list of toppings to pizza, returns false if toppings submitted were too many to be placed on the pizza
+     * @param toppingsInput Array of toppings to add
+     * @return True if successfully added toppings, false otherwise
+     */
+    public boolean addToppings(Topping[] toppingsInput){
+        if (numToppings + toppingsInput.length > 5){
+            return false;
+        }
+        toppings.addAll(Arrays.asList(toppingsInput));
         return true;
     }
 

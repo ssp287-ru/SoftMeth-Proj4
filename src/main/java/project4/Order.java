@@ -20,6 +20,20 @@ public class Order {
     }
 
     /**
+     * Calculates overall order price so far.
+     * @return Overall order price
+     */
+    public double orderPrice(){
+        double cost = 0;
+        if (!pizzas.isEmpty()){
+            for (Pizza pizza : pizzas){
+                cost += pizza.price();
+            }
+        }
+        return cost;
+    }
+
+    /**
      * Adder Method
      * @param pizza Unique Pizza to Add
      */
